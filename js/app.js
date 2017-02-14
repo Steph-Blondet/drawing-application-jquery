@@ -4,7 +4,7 @@
 var color = $(".selected").css("background-color");
 
 //When clicking on control list items
-$(".controls li").click(function(){
+$(".controls").on("click", "li", function(){
     //Deselect siblings elements
     $(this).siblings().removeClass("selected");
     //Select clicked element
@@ -14,7 +14,7 @@ $(".controls li").click(function(){
 });
 
 
-//When new color is pressed
+//When "New color" is pressed
 $("#revealColorSelect").click(function(){
     //Show color select or hide the color select
     changeColor();
@@ -34,10 +34,16 @@ function changeColor() {
 $("input[type=range]").change(changeColor);
 
 
-
-//When add color is pressed
+//When "Add color" is pressed
+$("#addNewColor").click(function(){
     //append the color to the controls ul
+    var $newColor = $("<li></li>");
+    $newColor.css("background-color", $("#newColor").css("background-color"));
+    $(".controls ul").append($newColor);
     //select the new color
+    $newColor.click();
+});
+
 
 
 //On mouse events on the canvas
