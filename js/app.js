@@ -14,9 +14,12 @@ $(".controls li").click(function(){
 });
 
 
-
 //When new color is pressed
+$("#revealColorSelect").click(function(){
     //Show color select or hide the color select
+    $("#colorSelect").toggle();
+});
+
 
 
 //When color cliders change
